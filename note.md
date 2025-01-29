@@ -55,3 +55,116 @@ NetworkManagerの状態を確認
 デバイスの状態を確認  
 `nmcli device show`  
 
+---
+
+デバイスの詳細情報を確認  
+`nmcli device show <デバイス名>`  
+
+---
+
+デバイスの有効化  
+`nmcli device connect <デバイス名>`  
+
+---
+
+デバイスの無効化  
+`nmcli device disconnect <デバイス名>`  
+
+## ネットワーク接続の管理  
+
+既存の接続を有効化  
+`nmcli connection up <接続名>`  
+
+---
+
+既存の接続を無効化  
+`nmcli connection down <接続名>`  
+
+---
+
+既存の接続を削除  
+`nmcli connection delete <接続名>`  
+
+---
+
+既存の接続を編集（対話式）  
+`nmcli connection edit <接続名>`  
+
+---
+
+既存の接続を変更（例:IPアドレスを変更）  
+`nmcli connection modify <接続名> ipv4.addresses <IPアドレス/プレフィックス>`  
+
+
+## Wi-Fiの管理  
+
+近くのWi-Fiネットワークをスキャン  
+`nmcli device wifi list`  
+
+---
+
+Wi-Fiに接続  
+`nmcli device wifi connect <SSID> password <パスワード>`  
+or  
+`nmcli device wifi connect <SSID> --ask`  
+
+---
+
+既存のWi-Fi接続を切断  
+`nmcli device disconnect <Wi-Fiデバイス名>`  
+
+---
+
+Wi-Fi接続を作成（静的IP）  
+`nmcli connection add type wifi ifname <Wi-Fiデバイス名> ssid <SSID> ipv4.addresses <IPアドレス/プレフィックス>`  
+
+## 有線接続の管理  
+
+DHCPで有線接続を追加  
+`nmcli connection add type ethernet ifname <インターフェイス名> autoconnect yes`  
+
+---
+
+静的IPで有線接続を追加  
+`nmcli connection add type ethernet ifname <インターフェイス名> ipv4.addresses <IPアドレス/プレフィックス>`  
+
+
+## VPNの設定 
+
+VPN接続を追加（OpenVPN）  
+`nmcli connection add type vpn ifname <VPN名> vpn-type openvpn`  
+
+---
+
+VPN接続を有効化  
+`nmcli connection up <VPN接続名>`  
+
+---
+
+VPN接続を無効化  
+`nmcli connection down <VPN接続名>`  
+
+
+## ホットスポットの作成  
+
+Wi-Fiホットスポットを作成  
+`nmcli device wifi hotspot ifname <Wi-Fiデバイス名> ssid <SSID> password <パスワード>`  
+
+---
+
+Wi-Fiホットスポットを停止  
+`nmcli connection down Hotspot`  
+
+
+## プロキシの設定  
+
+プロキシの追加  
+`nmcli connection modify <接続名> proxy.method manual`  
+`nmcli connection modify <接続名> proxy.http "http://proxy.example.com:8080"`  
+`nmcli connection modify <接続名> proxy.https "https://proxy.example.com:8080"`  
+
+---
+
+プロキシの無効化  
+`nmcli connection modify <接続名> proxy.method none`  
+
