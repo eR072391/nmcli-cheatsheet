@@ -28,7 +28,7 @@ OBJECT
   m[onitor]       monitor NetworkManager changes
 ```
 
-## 一般的な情報の取得  
+## 1. 一般的な情報の取得  
 
 NetworkManagerの状態を確認    
 `nmcli general status`  
@@ -50,7 +50,7 @@ NetworkManagerの状態を確認
 
 ---
 
-## ネットワークデバイスの管理  
+## 2. ネットワークデバイスの管理  
 
 デバイスの状態を確認  
 `nmcli device show`  
@@ -70,7 +70,7 @@ NetworkManagerの状態を確認
 デバイスの無効化  
 `nmcli device disconnect <デバイス名>`  
 
-## ネットワーク接続の管理  
+## 3. ネットワーク接続の管理  
 
 既存の接続を有効化  
 `nmcli connection up <接続名>`  
@@ -96,7 +96,7 @@ NetworkManagerの状態を確認
 `nmcli connection modify <接続名> ipv4.addresses <IPアドレス/プレフィックス>`  
 
 
-## Wi-Fiの管理  
+## 4. Wi-Fiの管理  
 
 近くのWi-Fiネットワークをスキャン  
 `nmcli device wifi list`  
@@ -118,7 +118,7 @@ or
 Wi-Fi接続を作成（静的IP）  
 `nmcli connection add type wifi ifname <Wi-Fiデバイス名> ssid <SSID> ipv4.addresses <IPアドレス/プレフィックス>`  
 
-## 有線接続の管理  
+## 5. 有線接続の管理  
 
 DHCPで有線接続を追加  
 `nmcli connection add type ethernet ifname <インターフェイス名> autoconnect yes`  
@@ -129,7 +129,7 @@ DHCPで有線接続を追加
 `nmcli connection add type ethernet ifname <インターフェイス名> ipv4.addresses <IPアドレス/プレフィックス>`  
 
 
-## VPNの設定 
+## 6. VPNの設定 
 
 VPN接続を追加（OpenVPN）  
 `nmcli connection add type vpn ifname <VPN名> vpn-type openvpn`  
@@ -145,7 +145,7 @@ VPN接続を無効化
 `nmcli connection down <VPN接続名>`  
 
 
-## ホットスポットの作成  
+## 7. ホットスポットの作成  
 
 Wi-Fiホットスポットを作成  
 `nmcli device wifi hotspot ifname <Wi-Fiデバイス名> ssid <SSID> password <パスワード>`  
@@ -156,7 +156,7 @@ Wi-Fiホットスポットを停止
 `nmcli connection down Hotspot`  
 
 
-## プロキシの設定  
+## 8. プロキシの設定  
 
 プロキシの追加  
 `nmcli connection modify <接続名> proxy.method manual`  
@@ -167,4 +167,8 @@ Wi-Fiホットスポットを停止
 
 プロキシの無効化  
 `nmcli connection modify <接続名> proxy.method none`  
+
+
+## 9. IPv6の設定  
+
 
