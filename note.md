@@ -171,4 +171,51 @@ Wi-Fiホットスポットを停止
 
 ## 9. IPv6の設定  
 
+IPv6を有効化  
+`nmcli connection modify <接続名> ipv6.method auto`  
 
+---
+
+IPv6を無効化  
+`nmcli connection modify <接続名> ipv6.method ignore`  
+
+
+## 10. DNSの設定  
+
+静的DNSを追加  
+`nmcli connection modify <接続名> ipv4.dns <DNSアドレス>`  
+
+---
+
+DNSをリセット（デフォルトに戻す）  
+`nmcli connection modify <接続名> ipv4.ignore-auto-dns no`  
+
+
+## 11. MACアドレスの変更  
+
+ランダムMACアドレスを設定  
+`nmcli connection modify <接続名> 802-11-wireless.mac-address-randomization yes`  
+
+---
+
+固定MACアドレスを設定  
+`nmcli connection modify <接続名> 802-3-ethernet.cloned-mac-address <MACアドレス>`  
+
+
+## 12. トラブルシューティング  
+
+ログを表示  
+`journalctl -u NetworkManager --since "1 hour ago"`  
+
+---
+
+NetworkManagerのリロード  
+`systemctl restart NetworkManager`  
+
+---
+
+NetworkManagerの状態確認  
+`systemctl status NetworkManager`  
+
+
+END.
