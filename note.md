@@ -28,7 +28,7 @@ OBJECT
   m[onitor]       monitor NetworkManager changes
 ```
 
-### 一般的な情報の取得
+## 一般的な情報の取得
 
 NetworkManagerの状態を確認    
 `nmcli general status`  
