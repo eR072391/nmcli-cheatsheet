@@ -48,3 +48,10 @@ NetworkManagerの状態を確認
 アクティブな接続のみ表示  
 `nmcli connection show --active`  
 
+---
+
+## ネットワークデバイスの管理  
+
+デバイスの状態を確認  
+`nmcli device show`  
+
